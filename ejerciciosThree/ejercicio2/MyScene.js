@@ -11,7 +11,8 @@ import { Cubo } from './Cubo.js'
 import { Cono } from './Cono.js'
 import { Cilindro } from './Cilindro.js'
 import { Icosaedro } from './Icosaedro.js'
-import { Toro } from './toro.js'
+import { Toro } from './Toro.js'
+import { Esfera } from './Esfera.js'
  
 /// La clase fachada del modelo
 /**
@@ -60,20 +61,32 @@ class MyScene extends THREE.Scene {
     this.axisToro.position.x = 10.0;
     this.axisToro.position.z = 10.0;
     this.add (this.axisToro);
+
+    this.axisEsfera = new THREE.AxesHelper (5);
+    this.axisEsfera.position.x = -10.0;
+    this.axisEsfera.position.z = 10.0;
+    this.add (this.axisEsfera);
     
     // Por último creamos el modelo.
     // El modelo puede incluir su parte de la interfaz gráfica de usuario. Le pasamos la referencia a 
     // la gui y el texto bajo el que se agruparán los controles de la interfaz que añada el modelo.
     this.cubo = new Cubo(this.gui, "Controles del Cubo");
     this.add (this.cubo);
+
     this.cono = new Cono(this.gui, "Controles del Cono");
     this.add (this.cono);
+
     this.cilindro = new Cilindro(this.gui, "Controles del cilindro");
     this.add(this.cilindro);
+
     this.icosaedro = new Icosaedro(this.gui, "Controles del Icosaedro");
     this.add(this.icosaedro);
+
     this.toro = new Toro(this.gui, "Controles del Toro");
     this.add(this.toro);
+
+    this.esfera = new Esfera(this.gui, "Controles de la Esfera");
+    this.add(this.esfera);
   }
   
   createCamera () {
@@ -215,6 +228,7 @@ class MyScene extends THREE.Scene {
     this.axisCilindro.visible = this.guiControls.axisOnOff;
     this.axisIcosaedro.visible = this.guiControls.axisOnOff;
     this.axisToro.visible = this.guiControls.axisOnOff;
+    this.axisEsfera.visible = this.guiControls.axisOnOff;
     
     // Se actualiza la posición de la cámara según su controlador
     this.cameraControl.update();
@@ -225,6 +239,7 @@ class MyScene extends THREE.Scene {
     this.cilindro.update();
     this.icosaedro.update();
     this.toro.update();
+    this.esfera.update();
     
     // Le decimos al renderizador "visualiza la escena que te indico usando la cámara que te estoy pasando"
     this.renderer.render (this, this.getCamera());

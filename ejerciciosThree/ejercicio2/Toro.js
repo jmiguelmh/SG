@@ -5,7 +5,7 @@ class Toro extends THREE.Object3D {
   {
     super();
     this.createGUI(gui,titleGui);
-    var geometria = new THREE.SphereBufferGeometry(1.0,0.5,10,10);
+    var geometria = new THREE.TorusGeometry(1.0,0.5,10,10);
     var material = new THREE.MeshPhongMaterial({color: 0xFF00FF});
     this.toro = new THREE.Mesh (geometria, material);
     this.add (this.toro);
@@ -15,7 +15,7 @@ class Toro extends THREE.Object3D {
 
   crearNuevo()
   {
-    var nuevaGeometria = new THREE.SphereBufferGeometry(this.guiControls.radius,this.guiControls.tube,this.guiControls.radialSegments,this.guiControls.tubularSegments);
+    var nuevaGeometria = new THREE.TorusGeometry(this.guiControls.radius,this.guiControls.tube,this.guiControls.radialSegments,this.guiControls.tubularSegments);
     this.toro.geometry = nuevaGeometria;
   }
   
