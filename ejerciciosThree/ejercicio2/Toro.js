@@ -5,10 +5,12 @@ class Toro extends THREE.Object3D {
   {
     super();
     this.createGUI(gui,titleGui);
+    
     var geometria = new THREE.TorusGeometry(1.0,0.5,10,10);
     var material = new THREE.MeshPhongMaterial({color: 0xFF00FF});
     this.toro = new THREE.Mesh (geometria, material);
     this.add (this.toro);
+
     this.position.x = 10.0;
     this.position.z = 10.0;
   }

@@ -215,6 +215,7 @@ class MyScene extends THREE.Scene {
     
     // Y también el tamaño del renderizador
     this.renderer.setSize (window.innerWidth, window.innerHeight);
+    
   }
 
   update () {

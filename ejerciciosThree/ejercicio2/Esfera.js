@@ -6,10 +6,12 @@ class Esfera extends THREE.Object3D
     {
         super();
         this.createGUI(gui,titleGui);
+        
         var geometria = new THREE.SphereBufferGeometry(1.0,10,10);
         var material = new THREE.MeshPhongMaterial({color: 0x00FFFF});
         this.esfera = new THREE.Mesh(geometria,material);
         this.add(this.esfera);
+
         this.position.x = -10.0;
         this.position.z = 10.0;
     }
