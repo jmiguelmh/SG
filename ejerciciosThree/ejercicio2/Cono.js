@@ -31,7 +31,7 @@ class Cono extends THREE.Object3D {
 
     folder.add (this.guiControls, 'radius', 0.1, 5.0, 0.1).name ('Radio: ').onChange(function(value){that.crearNuevo()});
     folder.add (this.guiControls, 'height', 0.1, 10.0, 0.1).name ('Altura: ').onChange(function(value){that.crearNuevo()});
-    folder.add (this.guiControls, 'segments', 2, 100, 1).name ('Segmentos: ').onChange(function(value){that.crearNuevo()});
+    folder.add (this.guiControls, 'segments', 3, 100, 1).name ('Segmentos: ').onChange(function(value){that.crearNuevo()});
   }
   
   update()
