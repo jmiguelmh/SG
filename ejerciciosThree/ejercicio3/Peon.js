@@ -49,8 +49,8 @@ class Peon extends THREE.Object3D
 
     createGUI (gui,titleGui) {
         this.guiControls = new function () {
-          this.segments = 3;
-          this.angle = Math.PI/2;
+          this.segments = 50;
+          this.angle = Math.PI*2;
         }
         
         var folder = gui.addFolder (titleGui);
