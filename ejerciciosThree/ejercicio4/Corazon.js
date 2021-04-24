@@ -26,8 +26,8 @@ class Corazon extends THREE.Object3D {
     var corazonMat = new THREE.MeshPhongMaterial( { color: 0xff0000 } );
     corazonMat.side =  THREE.DoubleSide;
 
-    this.corazon = new THREE.Mesh( geometry, corazonMat ) ;
-
+    this.corazon = new THREE.Mesh( geometry, corazonMat );
+    this.corazon.position.z = 0.5;
     this.add( this.corazon);
   }
 }
