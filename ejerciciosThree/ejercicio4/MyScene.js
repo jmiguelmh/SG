@@ -11,6 +11,8 @@ import { Corazon } from './Corazon.js'
 import { Trebol } from './Trebol.js'
 import { Diamante } from './Diamante.js'
 import { Pica } from './Pica.js'
+import { ColumnaCorazon } from './ColumnaCorazon.js'
+import { ColumnaTrebol } from './ColumnaTrebol.js'
  
 /// La clase fachada del modelo
 /**
@@ -46,8 +48,8 @@ class MyScene extends THREE.Scene {
     // Por último creamos el modelo.
     // El modelo puede incluir su parte de la interfaz gráfica de usuario. Le pasamos la referencia a 
     // la gui y el texto bajo el que se agruparán los controles de la interfaz que añada el modelo.
-    this.pica = new Pica(this.gui, "Controles");
-    this.add(this.pica);
+    this.columnaTrebol = new ColumnaTrebol(this.gui, "Controles");
+    this.add(this.columnaTrebol);
   }
   
   createCamera () {

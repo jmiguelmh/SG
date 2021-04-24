@@ -14,7 +14,7 @@ class Diamante extends THREE.Object3D {
     shape.lineTo(x - 1.5, y + 2.25);
 
     var options = {
-        depth: 1.0, bevelEnabled: true, bevelSegments: 2, steps: 1, bevelSize: 0.25, bevelThickness: 0.5,bevelSegments: 3, curveSegments: 100
+        depth: 1.0, bevelEnabled: false, bevelSegments: 2, steps: 1, bevelSize: 0.25, bevelThickness: 0.5,bevelSegments: 3, curveSegments: 100
     };
 
     var geometria = new THREE.ExtrudeGeometry(shape,options);
