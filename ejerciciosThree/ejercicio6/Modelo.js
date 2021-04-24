@@ -46,9 +46,9 @@ class Modelo extends THREE.Object3D {
     if(this.guiControls.animacion)
     {
         this.position.set(Math.sin(this.posX) * 10.0, 0.6 * this.escalado, Math.cos(this.posZ) * 10.0);
-        this.posX += 0.1;
-        this.posZ += 0.1;
-        this.rotation.y += 0.1;
+        this.posX += 0.03;
+        this.posZ += 0.03;
+        this.rotation.y += 0.03;
     }
   }
 }
