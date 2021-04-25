@@ -4,6 +4,8 @@ class Reloj extends THREE.Object3D {
   constructor(gui, titleGui) {
     super();
 
+    this.createGUI(gui,titleGui);
+
     var geometriaEsfera = new THREE.SphereGeometry(1.0, 25, 25);
     var geometriaCilindroGrande = new THREE.CylinderGeometry(0.5, 0.5, 12.5, 25);
     var geometriaCilindroPequenio = new THREE.CylinderGeometry(0.5, 0.5, 7.0, 25);
@@ -43,12 +45,17 @@ class Reloj extends THREE.Object3D {
   }
 
   createGUI (gui, titleGui) {
+    this.guiControls = new function() {
+        this.velocidad = 1.0;
+    }
     
+    var folder = gui.addFolder(titleGui);
+    folder.add(this.guiControls, 'velocidad', 0.1, 5.0, 0.1).name('Velocidad').listen();
   }
 
   update() {
-    this.nodoAgujaMinutos.rotation.y -= 0.05;
-    this.nodoAgujaHoras.rotation.y -= 0.05 / 12;
+    this.nodoAgujaMinutos.rotation.y -= this.guiControls.velocidad * 0.05;
+    this.nodoAgujaHoras.rotation.y -= this.guiControls.velocidad * 0.05 / 12;
   }
 }
 
