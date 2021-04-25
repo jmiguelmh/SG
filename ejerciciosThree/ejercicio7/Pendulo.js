@@ -84,16 +84,6 @@ class Pendulo extends THREE.Object3D {
       this.giroPrimerPendulo = 0.0;
       this.giroSegundoPendulo = 0.0;
       this.posicionSegundoPendulo = 10.0;
-
-      /*
-      this.reset = function () {
-        this.longitudPrimerPendulo = 8.0;
-        this.longitudSegundoPendulo = 12.0;
-        this.giroPrimerPendulo = 0.0;
-        this.giroSegundoPendulo = 0.0;
-        this.posicionSegundoPendulo = 0.0;
-      }
-      */
     }
 
     var folder1 = gui.addFolder ('Primer Péndulo');

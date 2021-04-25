@@ -33,7 +33,7 @@ class MyScene extends THREE.Scene {
     this.createCamera ();
     
     // Un suelo 
-    //this.createGround ();
+    this.createGround ();
     
     // Y unos ejes. Imprescindibles para orientarnos sobre dónde están las cosas
     this.axis = new THREE.AxesHelper (5);
