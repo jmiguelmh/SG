@@ -42,7 +42,7 @@ class BolaSaltarina extends THREE.Object3D {
     this.cilindro.scale.z = this.guiControls.extension;
     this.alpha -= 0.05;
     this.beta -= 0.05;
-    this.gamma += 0.1;
+    this.gamma += 0.15;
 
     this.esfera.position.set(5.0 * Math.cos(this.alpha) * this.guiControls.extension, 8.0 * Math.sin(this.gamma) + 10.0, 5.0 * Math.sin(this.beta) * this.guiControls.extension);
   }
