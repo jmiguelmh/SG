@@ -412,7 +412,6 @@ class MyScene extends Physijs.Scene {
       //Barra espaciadora
       else if(event.keyCode == "32") {
         this.personaje.position.z = 0.0;
-        this.respawn();
       }
     }
 
