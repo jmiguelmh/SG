@@ -114,7 +114,7 @@ class MyScene extends Physijs.Scene {
       // Moneda 9
       var moneda9 = new Moneda();
       var monedaFisica9 = new Physijs.BoxMesh(new THREE.BoxGeometry(1,1,1),new Physijs.createMaterial(materialInvisible,1,0),0);
-      monedaFisica9.position.set(72,24,0);
+      monedaFisica9.position.set(72,23,0);
       monedaFisica9.add(moneda9);
       this.add(monedaFisica9);
       monedaFisica9.addEventListener('collision',function(){monedaFisica9.position.y = -100; monedaFisica9.__dirtyPosition = true; that.personaje.monedas++; that.textUpdate();});
