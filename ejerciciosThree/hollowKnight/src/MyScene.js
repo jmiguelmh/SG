@@ -10,7 +10,7 @@ class MyScene extends Physijs.Scene {
 
       // Personaje
       this.personaje = new Personaje();
-      var geometriaCaja = new THREE.BoxGeometry(1,2,0.1);
+      var geometriaCaja = new THREE.BoxGeometry(1,2,1);
       var materialInvisible = new THREE.MeshBasicMaterial({transparent: true, opacity: 0.0});
       var materialFisico = Physijs.createMaterial(materialInvisible,1,0);
       this.personajeFisico = new Physijs.BoxMesh(geometriaCaja,materialFisico,1.0);
@@ -22,7 +22,15 @@ class MyScene extends Physijs.Scene {
       this.personajeFisico.__dirtyPosition = true;
 
       //Linea para el desarrollo de createStageHitBoxes, quitar despues, tambien descomentar this.simulate
-      //this.personajeFisico.position.set(38.75,19.25,0);
+      //this.personajeFisico.position.set(18.5,50,0);
+
+      // Monedas
+      this.createCoins();
+
+      // ContadorMonedas
+      this.contadorMonedas = new ContadorMonedas(this.personaje.monedas.toString());
+      this.add(this.contadorMonedas);
+      this.contadorMonedas.position.set(this.personajeFisico.position.x,this.personajeFisico.position.y, 10);
 
       // Escenario
       this.escenario = new Escenario();
@@ -32,6 +40,92 @@ class MyScene extends Physijs.Scene {
       this.createLights();
       this.createCamera();
 
+    }
+
+    createCoins() {
+      var materialInvisible = new THREE.MeshNormalMaterial({transparent: true, opacity: 0.0});
+
+      // Moneda 1
+      var moneda1 = new Moneda();
+      var monedaFisica1 = new Physijs.BoxMesh(new THREE.BoxGeometry(1,1,1),new Physijs.createMaterial(materialInvisible,1,0),0);
+      monedaFisica1.position.set(51,4,0);
+      monedaFisica1.add(moneda1);
+      this.add(monedaFisica1);
+      var that = this;
+      monedaFisica1.addEventListener('collision',function(){monedaFisica1.position.y = -100; monedaFisica1.__dirtyPosition = true; that.personaje.monedas++; that.textUpdate();});
+    
+      // Moneda 2
+      var moneda2 = new Moneda();
+      var monedaFisica2 = new Physijs.BoxMesh(new THREE.BoxGeometry(1,1,1),new Physijs.createMaterial(materialInvisible,1,0),0);
+      monedaFisica2.position.set(53,5,0);
+      monedaFisica2.add(moneda2);
+      this.add(monedaFisica2);
+      monedaFisica2.addEventListener('collision',function(){monedaFisica2.position.y = -100; monedaFisica2.__dirtyPosition = true; that.personaje.monedas++; that.textUpdate();});
+    
+      // Moneda 3
+      var moneda3 = new Moneda();
+      var monedaFisica3 = new Physijs.BoxMesh(new THREE.BoxGeometry(1,1,1),new Physijs.createMaterial(materialInvisible,1,0),0);
+      monedaFisica3.position.set(55,4,0);
+      monedaFisica3.add(moneda3);
+      this.add(monedaFisica3);
+      monedaFisica3.addEventListener('collision',function(){monedaFisica3.position.y = -100; monedaFisica3.__dirtyPosition = true; that.personaje.monedas++; that.textUpdate();});
+
+
+      // Moneda 4
+      var moneda4 = new Moneda();
+      var monedaFisica4 = new Physijs.BoxMesh(new THREE.BoxGeometry(1,1,1),new Physijs.createMaterial(materialInvisible,1,0),0);
+      monedaFisica4.position.set(103,-5,0);
+      monedaFisica4.add(moneda4);
+      this.add(monedaFisica4);
+      monedaFisica4.addEventListener('collision',function(){monedaFisica4.position.y = -100; monedaFisica4.__dirtyPosition = true; that.personaje.monedas++; that.textUpdate();});
+      
+      // Moneda 5
+      var moneda5 = new Moneda();
+      var monedaFisica5 = new Physijs.BoxMesh(new THREE.BoxGeometry(1,1,1),new Physijs.createMaterial(materialInvisible,1,0),0);
+      monedaFisica5.position.set(105,-5,0);
+      monedaFisica5.add(moneda5);
+      this.add(monedaFisica5);
+      monedaFisica5.addEventListener('collision',function(){monedaFisica5.position.y = -100; monedaFisica5.__dirtyPosition = true; that.personaje.monedas++; that.textUpdate();});
+
+      // Moneda 6
+      var moneda6 = new Moneda();
+      var monedaFisica6 = new Physijs.BoxMesh(new THREE.BoxGeometry(1,1,1),new Physijs.createMaterial(materialInvisible,1,0),0);
+      monedaFisica6.position.set(107,-5,0);
+      monedaFisica6.add(moneda6);
+      this.add(monedaFisica6);
+      monedaFisica6.addEventListener('collision',function(){monedaFisica6.position.y = -100; monedaFisica6.__dirtyPosition = true; that.personaje.monedas++; that.textUpdate();});
+
+      // Moneda 7
+      var moneda7 = new Moneda();
+      var monedaFisica7 = new Physijs.BoxMesh(new THREE.BoxGeometry(1,1,1),new Physijs.createMaterial(materialInvisible,1,0),0);
+      monedaFisica7.position.set(68,23,0);
+      monedaFisica7.add(moneda7);
+      this.add(monedaFisica7);
+      monedaFisica7.addEventListener('collision',function(){monedaFisica7.position.y = -100; monedaFisica7.__dirtyPosition = true; that.personaje.monedas++; that.textUpdate();});
+    
+      // Moneda 8
+      var moneda8 = new Moneda();
+      var monedaFisica8 = new Physijs.BoxMesh(new THREE.BoxGeometry(1,1,1),new Physijs.createMaterial(materialInvisible,1,0),0);
+      monedaFisica8.position.set(70,24,0);
+      monedaFisica8.add(moneda8);
+      this.add(monedaFisica8);
+      monedaFisica8.addEventListener('collision',function(){monedaFisica8.position.y = -100; monedaFisica8.__dirtyPosition = true; that.personaje.monedas++; that.textUpdate();});
+      
+      // Moneda 9
+      var moneda9 = new Moneda();
+      var monedaFisica9 = new Physijs.BoxMesh(new THREE.BoxGeometry(1,1,1),new Physijs.createMaterial(materialInvisible,1,0),0);
+      monedaFisica9.position.set(72,23,0);
+      monedaFisica9.add(moneda9);
+      this.add(monedaFisica9);
+      monedaFisica9.addEventListener('collision',function(){monedaFisica9.position.y = -100; monedaFisica9.__dirtyPosition = true; that.personaje.monedas++; that.textUpdate();});
+      
+      // Moneda 10
+      var moneda10 = new Moneda();
+      var monedaFisica10 = new Physijs.BoxMesh(new THREE.BoxGeometry(1,1,1),new Physijs.createMaterial(materialInvisible,1,0),0);
+      monedaFisica10.position.set(18.5,45,0);
+      monedaFisica10.add(moneda10);
+      this.add(monedaFisica10);
+      monedaFisica10.addEventListener('collision',function(){monedaFisica10.position.y = -100; monedaFisica10.__dirtyPosition = true; that.personaje.monedas++; that.textUpdate();});
     }
 
     createStageHitBoxes() {
@@ -340,7 +434,7 @@ class MyScene extends Physijs.Scene {
   
     createRenderer(my_canvas) {
       var renderer = new THREE.WebGLRenderer();
-      renderer.setClearColor(new THREE.Color(0x000000), 1.0);
+      renderer.setClearColor(new THREE.Color(0x00000), 1.0);
       renderer.setSize(window.innerWidth, window.innerHeight);
       $(my_canvas).append(renderer.domElement);
   
@@ -366,11 +460,17 @@ class MyScene extends Physijs.Scene {
       this.setCameraAspect(window.innerWidth/window.innerHeight);
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     }
+
+    textUpdate() {
+      this.remove(this.contadorMonedas);
+      this.contadorMonedas = new ContadorMonedas(this.personaje.monedas.toString());
+      this.add(this.contadorMonedas);
+    }
   
     update() {
       requestAnimationFrame(()=>this.update())
       this.personaje.update();
-      
+      this.contadorMonedas.position.set(this.personajeFisico.position.x - 14,this.personajeFisico.position.y + 7, 10);
       this.cameraUpdate();
       this.renderViewport(this, this.camera, 0, 0, 1, 1);
       this.simulate();
@@ -378,7 +478,6 @@ class MyScene extends Physijs.Scene {
       this.personajeFisico.rotation.y = 0.0;
       this.personajeFisico.rotation.z = 0.0;
       this.personajeFisico.__dirtyRotation = true;
-      console.log(this.personajeFisico.position.y);
       if(this.personajeFisico.position.y < -30)
         this.respawn();
     }
@@ -409,10 +508,6 @@ class MyScene extends Physijs.Scene {
       else if(event.keyCode == "83" || event.keyCode == "115") {
         this.personaje.crouch();
       }
-      //Barra espaciadora
-      else if(event.keyCode == "32") {
-        this.personaje.position.z = 0.0;
-      }
     }
 
     stop() {
@@ -424,7 +519,7 @@ class MyScene extends Physijs.Scene {
       if(this.puedeSaltar) {
         this.puedeSaltar = false;
         var fuerza = 10;
-        var direccion = new THREE.Vector3(0,1,0);
+        var direccion = new THREE.Vector3(0,10,0);
         var efecto = direccion.normalize().multiplyScalar(fuerza);
         this.personajeFisico.applyCentralImpulse(efecto);
       }
@@ -433,7 +528,7 @@ class MyScene extends Physijs.Scene {
     respawn() {
       this.personajeFisico.position.x = 0.0;
       this.personajeFisico.position.y = 50.0;
-      this.personajeFisico.position.x = 0.0;
+      this.personajeFisico.position.z = 0.0;
       this.personajeFisico.__dirtyPosition = true;
     }
   }

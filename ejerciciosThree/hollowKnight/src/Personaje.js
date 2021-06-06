@@ -1,10 +1,11 @@
 class Personaje extends THREE.Object3D {
   constructor() {
     super();
+    this.monedas = 0;
     this.direccion = "derecha";
     var geometriaCaja = new THREE.BoxBufferGeometry(1,2,0.1);
     var loader = new THREE.TextureLoader();
-    var textura = loader.load('../img/idleLeft.png');
+    var textura = loader.load('../img/idleRight.png');
     var materialCaja = new THREE.MeshPhongMaterial({map: textura, transparent: true});
     this.caja = new THREE.Mesh(geometriaCaja,materialCaja);
     this.add(this.caja);
